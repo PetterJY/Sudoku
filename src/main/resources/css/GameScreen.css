@@ -1,0 +1,15 @@
+.root {
+    -fx-background-color: darkslategray;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+    -fx-font-size: 10pt;
+    -fx-alignment: center;
+}
+.textFields {
+    -fx-background-size: cover;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+    -fx-alignment: center center;
+}

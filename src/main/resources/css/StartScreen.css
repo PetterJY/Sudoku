@@ -1,17 +1,24 @@
 .root {
     -fx-background-image: url('/start-screen-background.png');
-    -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
+    -fx-background-position: center center;
+    -fx-background-size: cover;
     -fx-font-size: 10pt;
 }
 
 .label {
-    -fx-text-fill: #e8e8e8;
+    -fx-font-family: Inter;
+    -fx-text-fill: #ffba31;
+    -fx-font-size: 50pt;
+    -fx-font-weight: bold;
 }
 
 .button {
-    -fx-background-color: linear-gradient(#50321b, #d10909);
+    -fx-background-color: linear-gradient(#ddc62b, #1ab182);
+    -fx-pref-height: 50;
+    -fx-pref-width: 300;
+    -fx-font-size: 10pt;
+    -fx-font-family: Inter;
 }
 
 .text-area {

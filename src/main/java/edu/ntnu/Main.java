@@ -21,8 +21,10 @@ public class Main extends Application {
    */
   @Override
   public void start(Stage stage) throws Exception {
+    Sudoku sudoku = new Sudoku();
+    int[][] board = sudoku.run();
     StartScreen startScreen = new StartScreen();
-    startScreen.run();
+    startScreen.run(stage, board);
     stage.setScene(startScreen.getScene());
     stage.show();
   }

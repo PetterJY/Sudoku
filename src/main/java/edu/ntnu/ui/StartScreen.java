@@ -2,8 +2,10 @@ package edu.ntnu.ui;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * Represents the StartScreen class.
@@ -24,12 +26,25 @@ public class StartScreen {
   /**
    * Runs the StartScreen.
    */
-  public void run() {
+  public void run(Stage stage, int[][] board) {
+    Label title = new Label("Sudoku");
     Button playButton = new Button("Play");
     Button quitButton = new Button("Quit");
-    VBox buttonBox = new VBox(10); // VBox with spacing of 10
-    buttonBox.getChildren().addAll(playButton, quitButton);
-    this.root.setCenter(buttonBox); // Add VBox to the center of BorderPane
+
+    playButton.setOnAction(e -> {
+      GameUi gameUi = new GameUi();
+      gameUi.run(stage, board);
+    });
+
+    quitButton.setOnAction(e -> {
+      System.out.println("Quit button clicked");
+      stage.close();
+    });
+
+    VBox centralBox = new VBox(50);
+    centralBox.setAlignment(javafx.geometry.Pos.CENTER);
+    centralBox.getChildren().addAll(title, playButton, quitButton);
+    this.root.setCenter(centralBox); // Add VBox to the center of BorderPane
   }
 
   /**

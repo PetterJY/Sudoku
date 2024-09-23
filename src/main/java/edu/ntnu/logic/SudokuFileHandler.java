@@ -22,7 +22,7 @@ public class SudokuFileHandler {
    * @param path the name of the file to read.
    * @return the content of the file as a 2D array.
    */
-  public int[][] readSudokuFile(String path, int grid) throws FileNotFoundException {
+  public static int[][] readSudokuFile(String path, int grid) throws FileNotFoundException {
     int[][] board = new int[9][9];
     Scanner scanner = new Scanner(new File(path));
 

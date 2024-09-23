@@ -8,6 +8,10 @@ import java.io.IOException;
  * Represents the Sudoku class.
  */
 public class Sudoku {
+  public static void main(String[] args) {
+    Sudoku sudoku = new Sudoku();
+    sudoku.run();
+  }
 
   /**
    * Constructor for the Sudoku class.

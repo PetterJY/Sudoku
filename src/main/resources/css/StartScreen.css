@@ -1,18 +1,20 @@
-.root{
-    -fx-background-color: url('start-screen-background.png');
-    -fx-font-size: 11pt;
+.root {
+    -fx-background-image: url('/start-screen-background.png');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-font-size: 10pt;
 }
 
-.label{
+.label {
     -fx-text-fill: #e8e8e8;
 }
 
-.button{
-    -fx-background-color: linear-gradient(#cf874d, #b11414);
-    -fx-background-radius: 100;
-}.
+.button {
+    -fx-background-color: linear-gradient(#50321b, #d10909);
+}
 
-.text-area{
+.text-area {
     -fx-background-color: white;
     -fx-background-radius: 0;
 }

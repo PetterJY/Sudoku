@@ -1,6 +1,5 @@
 package edu.ntnu;
 
-import edu.ntnu.Sudoku;
 import edu.ntnu.ui.StartScreen;
 import javafx.application.Application;
 import javafx.stage.Stage;

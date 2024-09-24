@@ -1,7 +1,8 @@
 package edu.ntnu.ui;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -28,32 +29,41 @@ public class GameUi {
    * @param stage the stage.
    */
   public void run(Stage stage, int[][] board) {
-
-    TextField[][] textFields = new TextField[9][9];
+    Label[][] numbers = new Label[9][9];
     for (int i = 0; i < 9; i++) {
       for (int j = 0; j < 9; j++) {
-        //Adding lines
-
-        textFields[i][j] = new TextField();
-        textFields[i][j].setPrefWidth(50);
-        textFields[i][j].setPrefHeight(50);
-        if ((i == 2 || i == 5) && (j == 2 || j == 5)) {
-          textFields[i][j].setStyle("-fx-border-color: white black black white;");
-        } else if (i == 2 || i == 5) {
-          textFields[i][j].setStyle("-fx-border-color: white black white white;");
-        } else if (j == 2 || j == 5) {
-          textFields[i][j].setStyle("-fx-border-color: white white black white;");
-        } else {
-          textFields[i][j].setStyle("-fx-border-color: white white white white;");
-        }
+        numbers[i][j] = new Label();
+        styleLabel(numbers, i, j);
         if (board[i][j] != 0) {
-          textFields[i][j].setText(String.valueOf(board[i][j]));
+          numbers[i][j].setText(String.valueOf(board[i][j]));
         }
-        this.root.add(textFields[i][j], i, j);
+        this.root.add(numbers[i][j], i, j);
       }
     }
 
     stage.setScene(this.scene);
     stage.show();
+  }
+
+  /**
+   * Styles the label.
+   *
+   * @param numbers the numbers.
+   * @param i the x coordinate in the grid.
+   * @param j the y coordinate in the grid.
+   */
+  private void styleLabel(Label[][] numbers, int i, int j) {
+    numbers[i][j].setAlignment(Pos.CENTER);
+    numbers[i][j].setPrefSize(100, 100);
+    numbers[i][j].getStyleClass().add("numbers");
+    if ((i == 2 || i == 5) && (j == 2 || j == 5)) {
+      numbers[i][j].getStyleClass().add("numbers-bottom-right");
+    } else if (i == 2 || i == 5) {
+      numbers[i][j].getStyleClass().add("numbers-right");
+    } else if (j == 2 || j == 5) {
+      numbers[i][j].getStyleClass().add("numbers-bottom");
+    } else {
+      numbers[i][j].getStyleClass().add("numbers-plain");
+    }
   }
 }

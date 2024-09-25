@@ -17,6 +17,10 @@
     -fx-border-width: 1px;
 }
 
+.numbers-selected {
+    -fx-background-color: whiteGrey;
+}
+
 .numbers-full {
     -fx-border-color: black black black black;
 }

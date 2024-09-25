@@ -62,8 +62,12 @@ public class GameUi {
       numbers[i][j].getStyleClass().add("numbers-right");
     } else if (j == 2 || j == 5) {
       numbers[i][j].getStyleClass().add("numbers-bottom");
+    } else if (i == 3 || i == 6) {
+      numbers[i][j].getStyleClass().add("numbers-left");
+    } else if (j == 3 || j == 6) {
+      numbers[i][j].getStyleClass().add("numbers-top");
     } else {
-      numbers[i][j].getStyleClass().add("numbers-plain");
+      numbers[i][j].getStyleClass().add("numbers-full-grey");
     }
   }
 }

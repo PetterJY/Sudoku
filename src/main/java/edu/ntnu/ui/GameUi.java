@@ -46,17 +46,18 @@ public class GameUi {
     }
 
     this.root.addEventFilter(MouseEvent.MOUSE_CLICKED, e -> {
-      if (e.getTarget() instanceof Label) {
-        Label source = (Label) e.getTarget();
-        boolean isSelected = source.getStyleClass().contains("numbers-selected");
-
-        // Deselect the previously selected label
+      if (e.getTarget() instanceof Label source) {
+        // If: There is already a selected square
+        // Then: De-select the square
         if (this.selectedNumber.getKey() != -1 && this.selectedNumber.getValue() != -1) {
           Label previouslySelected = numbers[this.selectedNumber.getKey()][this.selectedNumber.getValue()];
+          System.out.println("Before removal: " + previouslySelected.getStyleClass());
           previouslySelected.getStyleClass().remove("numbers-selected");
+          System.out.println("After removal: " + previouslySelected.getStyleClass());
         }
 
         // Select the new label if it is not already selected
+        boolean isSelected = source.getStyleClass().contains("numbers-selected");
         if (!isSelected && source.getStyleClass().contains("numbers")) {
           source.getStyleClass().add("numbers-selected");
           this.selectedNumber = new Pair<>(
@@ -64,9 +65,9 @@ public class GameUi {
                   GridPane.getColumnIndex(source)
           );
         } else {
-          // Reset the selected number if the same label is clicked again
-          this.selectedNumber = new Pair<>(-1, -1);
+          this.selectedNumber = new Pair<>(-1, -1); //Set to default
         }
+        System.out.println("New selected number: " + this.selectedNumber);
       }
     });
 

@@ -33,7 +33,7 @@ public class StartScreen {
 
     playButton.setOnAction(e -> {
       GameUi gameUi = new GameUi();
-      gameUi.run(stage, board);
+      gameUi.start(stage, board);
     });
 
     quitButton.setOnAction(e -> {

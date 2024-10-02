@@ -24,7 +24,7 @@ public class GameUi {
     this.root = new GridPane();
     this.scene = new Scene(this.root, 900, 700);
     this.scene.getStylesheets().add("/css/GameScreen.css");
-    this.selectedNumber = new Pair<>(-1, -1); // No number selected
+    this.selectedNumber = new Pair<>(-1, -1); // Default value
   }
 
   /**
@@ -32,7 +32,7 @@ public class GameUi {
    *
    * @param stage the stage.
    */
-  public void run(Stage stage, int[][] board) {
+  public void start(Stage stage, int[][] board) {
     Label[][] numbers = new Label[9][9];
     for (int i = 0; i < 9; i++) {
       for (int j = 0; j < 9; j++) {
@@ -57,8 +57,7 @@ public class GameUi {
         }
 
         // Select the new label if it is not already selected
-        boolean isSelected = source.getStyleClass().contains("numbers-selected");
-        if (!isSelected && source.getStyleClass().contains("numbers")) {
+        if (!source.getStyleClass().contains("numbers-selected") && source.getStyleClass().contains("numbers")) {
           source.getStyleClass().add("numbers-selected");
           this.selectedNumber = new Pair<>(
                   GridPane.getRowIndex(source),

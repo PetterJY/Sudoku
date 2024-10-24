@@ -16,6 +16,28 @@ public class Board {
   }
 
   /**
+   * Constructor for the Board class.
+   *
+   * @param board consisting of the values to fill in.
+   */
+  public Board(int[][] board) {
+    assemble(board);
+  }
+
+  /**
+   * Takes the values given, and fills them in the board.
+   *
+   * @param board the values to fill in.
+   */
+  public void assemble(int[][] board) {
+    for (int i = 0; i < 10; i++) {
+      for (int j = 0; j < 10; j++) {
+        this.board[i][j].setCharacter((char) board[i][j]);
+      }
+    }
+  }
+
+  /**
    * Representes the board.
    *
    * @return the board

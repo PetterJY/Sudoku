@@ -1,7 +1,7 @@
 package stud.ntnu.entity;
 
 /**
- * Class representing a square on a sudoku board.
+ * Represents a square on a sudoku board.
  */
 public class Square {
   private char[] alphabet;
@@ -51,6 +51,16 @@ public class Square {
     } else {
       throw new IllegalArgumentException("Character not in the alphabet.");
     }
+  }
+
+  /**
+   * Returns the alphabet.
+   *
+   * @return the alphabet.
+   */
+  public
+  char[] getAlphabet() {
+    return this.alphabet;
   }
 
   /**

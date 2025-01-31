@@ -1,7 +1,5 @@
 package stud.ntnu.entity;
 
-import stud.ntnu.entity.Square;
-
 /**
  * Represents a sudoku-board.
  */
@@ -21,6 +19,7 @@ public class Board {
    * @param board consisting of the values to fill in.
    */
   public Board(int[][] board) {
+    this.board = new Square[9][9];
     assemble(board);
   }
 
@@ -30,15 +29,27 @@ public class Board {
    * @param board the values to fill in.
    */
   public void assemble(int[][] board) {
-    for (int i = 0; i < 10; i++) {
-      for (int j = 0; j < 10; j++) {
-        this.board[i][j].setCharacter((char) board[i][j]);
+    for (int i = 0; i < 9; i++) {
+      for (int j = 0; j < 9; j++) {
+        this.board[i][j] = new Square(board[i][j]);
       }
     }
   }
 
   /**
-   * Representes the board.
+   * Prints the board.
+   */
+  public void printBoard() {
+    for (int i = 0; i < 9; i++) {
+      for (int j = 0; j < 9; j++) {
+        System.out.print(this.board[i][j].getCharacter());
+      }
+      System.out.println();
+    }
+  }
+
+  /**
+   * Returns the board.
    *
    * @return the board
    */

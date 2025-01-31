@@ -1,8 +1,9 @@
 package stud.ntnu;
 
-import stud.ntnu.entity.Square;
+import stud.ntnu.logic.Game;
 
 public class Main {
   public static void main(String[] args) {
+    Game game = new Game();
   }
 }

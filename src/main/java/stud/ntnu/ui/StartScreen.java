@@ -1,5 +1,6 @@
 package stud.ntnu.ui;
 
+import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,7 +11,7 @@ import javafx.stage.Stage;
 /**
  * Represents the StartScreen class.
  */
-public class StartScreen {
+public class StartScreen extends Application {
   private Scene scene;
   private BorderPane root;
 
@@ -23,10 +24,16 @@ public class StartScreen {
     this.scene.getStylesheets().add("/css/startScreen.css");
   }
 
+  @Override
+  public void start(Stage stage) {
+    StartScreen startScreen = new StartScreen();
+    startScreen.run(stage);
+  }
+
   /**
    * Runs the StartScreen.
    */
-  public void run(Stage stage, int[][] board) {
+  public void run(Stage stage) {
     Label title = new Label("Sudoku");
     Button playButton = new Button("Play");
     Button quitButton = new Button("Quit");

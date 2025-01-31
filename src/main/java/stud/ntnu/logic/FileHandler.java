@@ -1,7 +1,6 @@
 package stud.ntnu.logic;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Scanner;
 
 /**
@@ -12,7 +11,7 @@ public class FileHandler {
   /**
    * Constructor for the SudokuFileHandler class.
    */
-  public FileHandler() {
+  private FileHandler() {
     // Constructor
   }
 
@@ -22,16 +21,22 @@ public class FileHandler {
    * @param path the name of the file to read.
    * @return the content of the file as a 2D array.
    */
-  public int[][] readSudokuFile(String path, int grid) throws FileNotFoundException {
+  public static int[][] readSudokuFile(String path, int grid) {
     int[][] board = new int[9][9];
-    Scanner scanner = new Scanner(new File(path));
-
+    InputStream inputStream = FileHandler.class.getClassLoader().getResourceAsStream(path);
+    if (inputStream == null) {
+      throw new IllegalArgumentException("File not found: " + path);
+    }
+    Scanner scanner = new Scanner(inputStream);
     boolean gridFound = false;
     while (scanner.hasNextLine() && !gridFound) {
       String line = scanner.nextLine();
       if (line.equals("Grid " + grid)) {
         gridFound = true;
       }
+    }
+    if (!gridFound) {
+      throw new IllegalArgumentException("Grid not found: " + grid);
     }
 
     for (int i = 0; i < 9; i++) {
@@ -40,7 +45,6 @@ public class FileHandler {
         board[i][j] = Character.getNumericValue(line.charAt(j));
       }
     }
-
     return board;
   }
 }

@@ -4,15 +4,13 @@ package stud.ntnu.entity;
  * Represents a square on a sudoku board.
  */
 public class Square {
-  private char[] alphabet;
-  private char character;
+  private int character;
 
   /**
    * Constructor for the square class.
    */
   public Square() {
-    this.alphabet = "0123456789".toCharArray();
-    setCharacter('*');
+    setCharacter('0');
   }
 
   /**
@@ -20,24 +18,8 @@ public class Square {
    *
    * @param character the character to set.
    */
-  public Square(char character) {
-    this.alphabet = "*0123456789".toCharArray();
+  public Square(int character) {
     setCharacter(character);
-  }
-
-  /**
-   * Returns true if the alphabet contains the character given.
-   *
-   * @param character the character to check.
-   * @return true if the alphabet contains the character given.
-   */
-  public boolean contains(char character) {
-    for (int i = 0; i < alphabet.length - 1; i++) {
-      if (alphabet[i] == character) {
-        return true;
-      }
-    }
-    return false;
   }
 
   /**
@@ -45,22 +27,12 @@ public class Square {
    *
    * @param character the character to set.
    */
-  public void setCharacter(char character) {
-    if (contains(character)) {
+  public void setCharacter(int character) {
+    if (character >= 0 && character <= 9) {
       this.character = character;
     } else {
-      throw new IllegalArgumentException("Character not in the alphabet.");
+      throw new IllegalArgumentException("Character: " + character + " not in the alphabet.");
     }
-  }
-
-  /**
-   * Returns the alphabet.
-   *
-   * @return the alphabet.
-   */
-  public
-  char[] getAlphabet() {
-    return this.alphabet;
   }
 
   /**
@@ -68,7 +40,7 @@ public class Square {
    *
    * @return the character.
    */
-  public char getCharacter() {
+  public int getCharacter() {
     return this.character;
   }
 }

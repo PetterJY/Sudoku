@@ -21,7 +21,7 @@ public class StartScreen extends Application {
   public StartScreen() {
     this.root = new BorderPane();
     this.scene = new Scene(this.root, 900, 700);
-    this.scene.getStylesheets().add("/css/startScreen.css");
+    this.scene.getStylesheets().add("/css/StartScreen.css");
   }
 
   @Override
@@ -38,6 +38,9 @@ public class StartScreen extends Application {
     Button playButton = new Button("Play");
     Button quitButton = new Button("Quit");
 
+    playButton.setOnAction(e -> {
+
+    });
 
     quitButton.setOnAction(e -> {
       System.out.println("Quit button clicked");

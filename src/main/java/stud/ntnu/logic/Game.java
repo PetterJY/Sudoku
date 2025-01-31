@@ -1,7 +1,6 @@
 package stud.ntnu.logic;
 
 import stud.ntnu.entity.Board;
-
 import java.util.Random;
 
 public class Game {
